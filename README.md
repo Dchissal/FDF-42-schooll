@@ -1,65 +1,99 @@
-O que é FDF? 
- 
-O projeto FdF, abreviação de "Fil de Fer" (que significa "fio de arame" em francês), 
-é um dos projetos da formação da 42, focado em renderização gráfica básica em C. 
-O principal objetivo do FdF é desenvolver uma visualização 3D simples de mapas de 
-elevação em um plano isométrico, onde a profundidade é representada de forma a dar uma noção de perspectiva.
-Isso envolve renderizar dados bidimensionais (representando altitudes) em uma projeção tridimensional. 
+# fdf
 
-Principais Conceitos e Objetivos do FdF: 
+**fdf** é um projeto desenvolvido como parte do currículo da 42. O objetivo deste projeto é criar uma ferramenta de visualização de mapas 3D em wireframe, usando a biblioteca gráfica `mlx` (MiniLibX). O projeto transforma arquivos que contêm dados de elevação de um terreno em uma representação visual tridimensional.
 
-Renderização e Projeção Isométrica: 
+## 📋 Índice
 
-No FdF, cada ponto do mapa representa uma coordenada em uma grade (um ponto 2D) 
-que é transformada em uma perspectiva 3D, criando a ilusão de profundidade. 
+- [Visão Geral](#visão-geral)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Funcionalidades](#funcionalidades)
+- [Controles](#controles)
+- [Formato do Arquivo](#formato-do-arquivo)
+- [Exemplos](#exemplos)
+- [Contribuições](#contribuições)
+- [Licença](#licença)
+- [Contato](#contato)
 
-A projeção isométrica é usada para dar uma visão tridimensional sem precisar 
-implementar uma câmera complexa, facilitando o desenho em 3D. 
+## 🌟 Visão Geral
 
-Manipulação de Dados de Altitude: 
+O **fdf** (fil de fer) é um visualizador de mapas 3D que permite carregar e visualizar mapas em perspectiva isométrica ou paralela. Ele utiliza arquivos de texto que contêm matrizes de inteiros representando alturas, e transforma esses dados em um modelo tridimensional, onde as linhas conectam os pontos baseados nos valores das alturas.
 
-O projeto começa com a leitura de um arquivo .fdf, que contém uma matriz 
-de valores numéricos representando altitudes. 
+## 🚀 Instalação
 
-A partir desses dados, o programa cria uma imagem onde cada ponto na grade 
-corresponde a uma elevação específica. Esses valores de elevação são escalados 
-para destacar picos e depressões, formando "montanhas" e "vales". 
+### Pré-requisitos
 
-Transformações Geométricas e Efeitos de Perspectiva: 
+- **gcc** (ou outro compilador C)
+- **make**
+- **MiniLibX** (mlx)
+- **X11** (para sistemas baseados em Unix)
+- **Xpm** (para manipulação de imagens XPM)
 
-A renderização envolve transformações geométricas, como translação, 
-rotação e escalonamento, permitindo que o usuário "gire" e "mova" a 
-visualização para ver o mapa de diferentes ângulos. 
+### Passos de Instalação
 
-Essas transformações são calculadas com operações matemáticas, 
-geralmente usando trigonometria e multiplicação de matrizes, que são 
-fundamentais para transformar a posição dos pontos em 3D. 
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/lhabacuc/fdf.git
+    cd fdf
+    ```
 
-Desenvolvimento em C e Controle de Baixo Nível: 
+2. Compile o projeto:
+    ```bash
+    make
+    ```
 
-Como o projeto é feito em C, sem uso de bibliotecas gráficas 
-avançadas, os estudantes geralmente utilizam a MiniLibX, uma biblioteca 
-gráfica simples que permite criar janelas, exibir pixels e capturar eventos do teclado e do mouse. 
+3. Execute o programa:
+    ```bash
+    ./fdf path/to/map.fdf
+    ```
 
-Esse controle de baixo nível desenvolve habilidades de 
-gerenciamento de memória e otimização de código. 
+## 🎮 Uso
 
-Interatividade e Controle: 
+Para visualizar um mapa, execute o comando acima, especificando o caminho para um arquivo de mapa `.fdf`. O arquivo deve seguir o formato especificado na seção [Formato do Arquivo](#formato-do-arquivo).
 
-O projeto também envolve interatividade básica. Os usuários podem 
-modificar a perspectiva e o ângulo de visualização usando comandos 
-de teclado ou mouse, ajustando o zoom e a rotação do mapa. 
+## 🛠️ Funcionalidades
 
-Desafios Técnicos do FdF: 
+- **Visualização Isométrica**: Apresenta o mapa em uma projeção isométrica, dando uma perspectiva 3D.
+- **Zoom e Movimento**: Permite ajustar o zoom e mover o mapa dentro da janela.
+- **Rotação**: Rotacione o mapa em torno de vários eixos para visualizar de diferentes ângulos.
+- **Ajuste de Altura**: Altere a escala da altura para exagerar ou suavizar as elevações.
 
-Implementação de cálculos matemáticos para a projeção isométrica e manipulação dos pontos. 
+## ⌨️ Controles
 
-Otimização para exibir gráficos rapidamente, mesmo em ambientes de baixo nível. 
+- **Teclas de seta**: Mover o mapa
+- **Teclas + / -**: Zoom in / Zoom out
+- **Teclas W / S**: Aumentar / diminuir a altura
+- **Teclas A / D**: Rotação no eixo X
+- **Teclas Q / E**: Rotação no eixo Y
+- **Teclas Z / C**: Rotação no eixo Z
+- **Tecla ESC**: Sair do programa
 
-Controle de eventos para permitir navegação pelo mapa, incluindo zoom, translação e rotação. 
+## 📂 Formato do Arquivo
 
-Aprendizados e Benefícios: 
+O arquivo de entrada `.fdf` deve ser um arquivo de texto que contenha uma matriz de inteiros. Cada número representa a altura em um ponto específico do mapa.
 
-O projeto FdF introduz os alunos aos fundamentos de gráficos computacionais e projeções 3D, 
-familiarizando-os com transformações geométricas e manipulação de pixels. É um passo 
-importante para quem pretende se aprofundar em gráficos avançados, renderização, ou simulações gráficas.
+Exemplo de arquivo `.fdf`:
+```
+0  0  0  0  0
+0  1  1  1  0
+0  2  2  2  0
+0  1  1  1  0
+0  0  0  0  0
+```
+
+## 🖼️ Exemplos
+
+Aqui estão alguns exemplos de mapas que podem ser visualizados com o **fdf**:
+
+1. **Mapa plano**: Um arquivo que contém apenas zeros para criar uma superfície plana.
+2. **Montanha**: Arquivo com elevações que simulam uma montanha.
+3. **Terreno**: Arquivo que representa um terreno variado com vales e picos.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 📞 Contato
+
+- **GitHub**: [dchissal](https://github.com/Dchissal)
+- **Email**: chissali971@gmail.com
