@@ -84,6 +84,7 @@ Exemplo de arquivo `.fdf`:
 ## 🖼️ Exemplos
 ![example (2)](https://raw.githubusercontent.com/Dchissal/FDF-42-schooll/refs/heads/main/Screenshot%20from%202024-10-13%2009-53-45.png)
 
+![example (3)](https://raw.githubusercontent.com/Dchissal/FDF-42-schooll/refs/heads/main/Screenshot%20from%202024-10-13%2009-55-17.png)
 Aqui estão alguns exemplos de mapas que podem ser visualizados com o **fdf**:
 
 1. **Mapa plano**: Um arquivo que contém apenas zeros para criar uma superfície plana.
