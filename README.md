@@ -33,7 +33,7 @@ O **fdf** (fil de fer) é um visualizador de mapas 3D que permite carregar e vis
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/lhabacuc/fdf.git
+    https://github.com/Dchissal/FDF-42-schooll.git
     cd fdf
     ```
 
