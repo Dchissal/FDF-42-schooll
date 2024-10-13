@@ -37,12 +37,12 @@ O **fdf** (fil de fer) é um visualizador de mapas 3D que permite carregar e vis
     cd fdf
     ```
 
-2. Compile o projeto:
+3. Compile o projeto:
     ```bash
     make
     ```
 
-3. Execute o programa:
+4. Execute o programa:
     ```bash
     ./fdf path/to/map.fdf
     ```
@@ -82,6 +82,7 @@ Exemplo de arquivo `.fdf`:
 ```
 
 ## 🖼️ Exemplos
+![example (2)](https://raw.githubusercontent.com/Dchissal/FDF-42-schooll/refs/heads/main/Screenshot%20from%202024-10-13%2009-53-45.png)
 
 Aqui estão alguns exemplos de mapas que podem ser visualizados com o **fdf**:
 
